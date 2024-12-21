@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            color: rgb(255, 172, 172);
+            
+        }
+        .container{
+            height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(rgb(3, 159, 198),white 70%);
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .text{
+            text-decoration: underline;
+            text-underline-offset: 0.2em; 
+            text-decoration-thickness: 0.05em; 
+        }
+        .text:hover{
+            text-decoration: underline wavy ;
+            text-underline-offset: 0.2em; 
+            text-decoration-thickness: 0.05em; 
+        }
+        .under-text{
+            margin-top: 1em;
+        }
+        img{
+            display: none;
+        }
+        @media (max-width: 768px) {
+
+            .text-cont,.under-text { 
+        
+                display: none; 
+        
+            }
+            img,.congrats{
+                display: block;
+            }
+        
+        } 
+
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="text-cont" style="font-size: 3em;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" ><div class="text">Site for Boba Plushie</div></div>
+<div class="under-text">Become Site Inspector for a Magic ;)</div>
+<img src="https://cloud-jwuxjyw7i-hack-club-bot.vercel.app/0xmas_jpg-removebg-preview.png" alt="xmas-tree"><h1 class="congrats" style="display: none;">Congrats on becoming Site Inspector, here's your gift. Now gimmme my Plushie</h1>
+</div>
+</body>
+</html>
