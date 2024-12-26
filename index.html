@@ -1,61 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-            margin: 0;
-            color: rgb(255, 172, 172);
-            
-        }
-        .container{
-            height: 100vh;
-            width: 100%;
-            background-image: linear-gradient(rgb(3, 159, 198),white 70%);
-            display:flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        .text{
-            text-decoration: underline;
-            text-underline-offset: 0.2em; 
-            text-decoration-thickness: 0.05em; 
-        }
-        .text:hover{
-            text-decoration: underline wavy ;
-            text-underline-offset: 0.2em; 
-            text-decoration-thickness: 0.05em; 
-        }
-        .under-text{
-            margin-top: 1em;
-        }
-        img{
-            display: none;
-        }
-        @media (max-width: 768px) {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas Gift Suggestion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, #ffafbd, #ffc3a0);
+      color: #fff;
+      text-align: center;
+    }
 
-            .text-cont,.under-text { 
-        
-                display: none; 
-        
-            }
-            img,.congrats{
-                display: block;
-            }
-        
-        } 
+    header {
+      background-color: #ff6363;
+      padding: 20px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
 
-    </style>
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    .countdown {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 20px auto;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input {
+      width: 80%;
+    }
+
+    button {
+      background-color: #f76c6c;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    table {
+      margin: 20px auto;
+      width: 80%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    table th, table td {
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      text-align: left;
+      color: #fff;
+    }
+
+    table th {
+      background-color: #f76c6c;
+    }
+
+    footer {
+      background-color: #ff6363;
+      padding: 10px 0;
+      margin-top: 20px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9em;
+    }
+
+    .snowflakes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="container">
+  <header>
+    <h1>🎄 Christmas Gift Suggestion 🎄</h1>
+  </header>
 
-<div class="text-cont" style="font-size: 3em;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" ><div class="text">Site for Boba Plushie</div></div>
-<div class="under-text">Become Site Inspector for a Magic ;)</div>
-<img src="https://cloud-jwuxjyw7i-hack-club-bot.vercel.app/0xmas_jpg-removebg-preview.png" alt="xmas-tree"><h1 class="congrats" style="display: none;">Congrats on becoming Site Inspector, here's your gift. Now gimmme my Plushie</h1>
-</div>
+  <div class="countdown">🎉 Leave a sweet gift suggestion and <br> message for your loved ones and 🎅 will deliver it to them 🎉</div>
+
+  <section>
+    <h2>Submit Your Gift Suggestion</h2>
+    <div class="form-container">
+      <form id="submission-form">
+        <input type="text" placeholder="Your Name" id="name" required><br>
+        <input type="text" placeholder="Message" id="msg" required><br>
+        <input type="text" placeholder="Gift Suggestion" id="gift" required><br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <h2>Submitted Suggestions</h2>
+    <table id="submissions-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Message for your Lovey Dovey</th>
+          <th>Gift Suggestion</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>Made by Manan in collaboration with 🎅</p>
+  </footer>
+
+  <div class="snowflakes" id="snowflakes"></div>
+
+  <script>
+    const snowflakesEl = document.getElementById('snowflakes');
+    const createSnowflake = () => {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+
+      const dimen = Math.random() * 10 + 5;
+      snowflake.style.width = `${dimen}px`;
+      snowflake.style.height = `${dimen}px`;
+
+      snowflake.style.left = `${Math.random() * window.innerWidth}px`;
+      snowflake.style.animationDuration = `${Math.random() * 5 + 3}s`;
+
+      snowflakesEl.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 8000);
+    };
+
+    setInterval(createSnowflake, 200);
+
+    const form = document.getElementById('submission-form');
+  const tableBody = document.querySelector('#submissions-table tbody');
+
+  
+  const loadSubmissions = () => {
+    const submissions = JSON.parse(localStorage.getItem('submissions')) || [];
+    submissions.forEach(({ name, msg, gift }) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${name}</td>
+        <td>${msg}</td>
+        <td>${gift}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  };
+
+  loadSubmissions();
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const msg = document.getElementById('msg').value;
+    const gift = document.getElementById('gift').value;
+
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${name}</td>
+      <td>${msg}</td>
+      <td>${gift}</td>
+    `;
+    tableBody.appendChild(row);
+
+    const submissions = JSON.parse(localStorage.getItem('submissions')) || [];
+    submissions.push({ name, msg, gift });
+    localStorage.setItem('submissions', JSON.stringify(submissions));
+
+    form.reset();
+  });
+  </script>
 </body>
 </html>
